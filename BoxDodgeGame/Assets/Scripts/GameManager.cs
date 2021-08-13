@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    public Score m_score = null;
     public void EndGame()
     {
+        m_score.CalculateHighScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
    

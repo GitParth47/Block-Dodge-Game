@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +10,24 @@ public class Score : MonoBehaviour
     public Text ScoreText;
     private float ScoreAmount;
     private float PointIncreasePerSecond;
+    private float highScore = 0;
+    internal void CalculateHighScore()
+    {
+        if(ScoreAmount > highScore)
+        {
+            highScore = ScoreAmount;
+            PlayerPrefs.SetFloat("HighScore", highScore);
+        }
+    }
+
     public Text HighScoreText;
 
     void Start()
     {
         ScoreAmount = 0f;
         PointIncreasePerSecond = 1f;
-
-        HighScoreText.text = PlayerPrefs.GetFloat("HighScore",0).ToString("0");
+        highScore = PlayerPrefs.GetFloat("HighScore", 0);
+        HighScoreText.text = highScore.ToString("0");
 
         
     }
@@ -27,7 +38,7 @@ public class Score : MonoBehaviour
 
         ScoreAmount += PointIncreasePerSecond * Time.deltaTime;
     
-        PlayerPrefs.SetFloat("HighScore", ScoreAmount);
+        //PlayerPrefs.SetFloat("HighScore", ScoreAmount);
          
      }
 
