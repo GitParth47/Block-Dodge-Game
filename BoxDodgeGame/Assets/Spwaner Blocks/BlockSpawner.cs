@@ -54,7 +54,7 @@ public class BlockSpawner : MonoBehaviour
             spawn();
             yield return new WaitForSeconds(spawnDelay);
         }
-    }
+    }   
 }
 
 

@@ -11,6 +11,10 @@ public class Score : MonoBehaviour
     private float ScoreAmount;
     private float PointIncreasePerSecond;
     private float highScore = 0;
+    public Text HighScoreText;
+
+
+
     internal void CalculateHighScore()
     {
         if(ScoreAmount > highScore)
@@ -20,7 +24,7 @@ public class Score : MonoBehaviour
         }
     }
 
-    public Text HighScoreText;
+    
 
     void Start()
     {
